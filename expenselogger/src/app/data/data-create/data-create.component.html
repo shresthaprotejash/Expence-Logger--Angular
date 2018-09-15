@@ -1,0 +1,34 @@
+<mat-card class="data-create">
+    <mat-card-header>
+            <div mat-card-avatar class="data-create-header-image"></div>
+            <mat-card-title> Add Expense</mat-card-title>
+            
+    </mat-card-header>
+    <hr>
+    <mat-card-content>      
+    <form class="example-form"> 
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="What was this spend for?" value="">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Enter Amount">
+        </mat-form-field>
+
+        <data-create-datepicker></data-create-datepicker>
+
+        <mat-form-field>
+                <mat-select placeholder="Category">                
+                  <mat-option *ngFor="let item of items" [value]="item.value">
+                    {{item.viewValue}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+      </form>
+    </mat-card-content>
+    <hr> 
+    <mat-card-footer>
+            <button class="btn btn-success">Save</button>
+    </mat-card-footer>
+</mat-card>
+    
