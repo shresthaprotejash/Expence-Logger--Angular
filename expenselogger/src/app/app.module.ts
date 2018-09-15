@@ -8,19 +8,18 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSelectModule } from '@angular/material/select';
+import { FormsModule } from '@angular/forms';
 
 import { HeaderComponent } from './header/header.component';
 import { DataViewComponent } from './data/data-view/data-view.component';
 import { DataCreateComponent } from './data/data-create/data-create.component';
-import { DateCreateDatePickerComponent } from './data/data-create/data-create-datepicker/data-create-datepicker.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     DataViewComponent,
-    DataCreateComponent,
-    DateCreateDatePickerComponent
+    DataCreateComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +28,8 @@ import { DateCreateDatePickerComponent } from './data/data-create/data-create-da
     MatCardModule,
     MatInputModule,
     MatDatepickerModule,
-    MatSelectModule
+    MatSelectModule,
+    FormsModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -8,17 +8,21 @@
     <mat-card-content>      
     <form class="example-form"> 
         <mat-form-field class="example-full-width">
-          <input matInput placeholder="What was this spend for?" value="">
+          <input matInput placeholder="What was this spend for?" #itemInfo>
         </mat-form-field>
 
         <mat-form-field class="example-full-width">
-            <input matInput placeholder="Enter Amount">
+            <input matInput placeholder="Enter Amount" type="number" #amount>
         </mat-form-field>
 
-        <data-create-datepicker></data-create-datepicker>
+        <mat-form-field>
+                <input matInput [matDatepicker]="picker" placeholder="Choose a date" #dateSelected>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
 
         <mat-form-field>
-                <mat-select placeholder="Category">                
+                <mat-select placeholder="Category" #category>                
                   <mat-option *ngFor="let item of items" [value]="item.value">
                     {{item.viewValue}}
                   </mat-option>
@@ -28,7 +32,8 @@
     </mat-card-content>
     <hr> 
     <mat-card-footer>
-            <button class="btn btn-success">Save</button>
+            <button class="btn btn-success" (click)="onSaveData(itemInfo, amount, dateSelected, category)">Save</button>
     </mat-card-footer>
+    <p>{{ data }}</p>
 </mat-card>
     
