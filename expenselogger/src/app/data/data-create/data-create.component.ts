@@ -37,7 +37,7 @@ export class DataCreateComponent {
     itemInfo = '';
     amount = '';
     category = '';
-    picker = '';
+    dateSelected = '';
     date = new FormControl(moment([2017, 0, 1]));
 
     items: Item[] = [
@@ -52,7 +52,12 @@ export class DataCreateComponent {
       ];
     
     onSaveData(itemInfo, amount, dateSelected, category){
-        this.data = itemInfo.value + amount.value + dateSelected.value + category.value;
+        if(itemInfo.value == '' || amount.value == '' || category.value == undefined){
+            this.data = 'Please fill all the fields to save.';
+        }
+        else { 
+            this.data = itemInfo.value + amount.value + dateSelected.value + category.value;
+        }
     }
 
 }
