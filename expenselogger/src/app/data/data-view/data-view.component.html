@@ -2,20 +2,29 @@
     <mat-card-content>
         <div class="container">
                 <div class="row">
-                        <div class="col-sm-3"><p>Date</p></div>
+                        <div class="col-sm-2"><p>Date</p></div>
                         <div class="col-sm-3"><p>Item</p></div>
-                        <div class="col-sm-3"><p>Price</p></div>
-                        <div class="col-sm-3">
-                            <div class ="actions">
-                                <button id = "edit" class="btn btn-primary" mat-button>Edit</button>
-                                <button id = "delete" class="btn btn-danger" mat-button>Delete</button>
-                            </div>
-                        </div>
-                </div>
-            
+                        <div class="col-sm-2"><p>Category</p></div>
+                        <div class="col-sm-2"><p>Price</p></div>
+                </div>         
         </div>
     </mat-card-content>
-    <mat-card-actions>
-        
-    </mat-card-actions>
+</mat-card>
+<mat-card class="data-view">
+        <mat-card-content *ngFor = "let item  of items">
+            <div class="container">
+                    <div class="row">
+                            <div class="col-sm-2"><p>{{item.date}}</p></div>
+                            <div class="col-sm-3"><p>{{item.item}}</p></div>
+                            <div class="col-sm-2"><p>{{item.category}}</p></div>
+                            <div class="col-sm-2"><p>{{item.amount}}</p></div>
+                            <div class="col-sm-3">
+                                <div class ="actions">
+                                    <button id = "edit" class="btn btn-primary" mat-button>Edit</button>
+                                    <button id = "delete" class="btn btn-danger" mat-button>Delete</button>
+                                </div>
+                            </div>
+                    </div>
+            </div>
+        </mat-card-content>
 </mat-card>

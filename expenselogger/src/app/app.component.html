@@ -1,9 +1,13 @@
 <app-header></app-header>
 <main>
-<h1>  
-  {{title}}
-</h1>
-<app-data-view></app-data-view>
+<br><br>
 
-<app-data-create></app-data-create>
+<div *ngIf="!data">
+    <button id = "add" class="btn btn-primary" mat-button (click)="createData()">Add</button>
+    <br><br>
+  <app-data-view></app-data-view>
+</div>
+<div *ngIf="data">
+  <app-data-create></app-data-create>
+</div>
 </main>

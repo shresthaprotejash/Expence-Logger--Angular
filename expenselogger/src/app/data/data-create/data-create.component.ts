@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import {FormControl} from '@angular/forms';
+import {AppComponent } from 'src/app/app.component'
 import {MAT_MOMENT_DATE_FORMATS, MomentDateAdapter} from '@angular/material-moment-adapter';
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 
@@ -50,13 +51,22 @@ export class DataCreateComponent {
         {value: 'Investment', viewValue: 'Investment'},
         {value: 'Others', viewValue: 'Others'}
       ];
-    
+
+    //@Output() messageEvent = new EventEmitter<Item[]>();
     onSaveData(itemInfo, amount, dateSelected, category){
         if(itemInfo.value == '' || amount.value == '' || category.value == undefined){
             this.data = 'Please fill all the fields to save.';
         }
         else { 
-            this.data = itemInfo.value + amount.value + dateSelected.value + category.value;
+            this.data='received';
+            const expense ={
+                date: dateSelected.value,
+                item: itemInfo.value,
+                amount: amount.value,                
+                category: category.value
+            }
+            AppComponent.resetData();
+            //this.messageEvent.emit(expense)
         }
     }
 

@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Work under progress';
+
+  data = 0
+  createData(){
+    this.data = 1
+  }
+
+  get resetData(){
+    return this.data;
+  }
 }
