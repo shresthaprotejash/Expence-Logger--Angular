@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import  {DataViewService} from './data-view.service';
 
 @Component({
     selector: 'app-data-view',
@@ -7,15 +8,12 @@ import { Component } from "@angular/core";
 })
 
 export class DataViewComponent {
-    items =[
-        {date: "09/16/2018", item: "petrol", category: "Fuel", amount: '500'},
-        {date: "09/12/2018", item: "took vegitables at store", category: "Food", amount: '1500'},
-        {date: "09/10/2018", item: "Phone emi", category: "EMI", amount: '5000'}
-
-    ]
+  
+  constructor (public dataViewService: DataViewService){}
     
-    
-    receiveMessage($event){
-        this.items.push($event);
-    }
+  onDelete(i,item){
+   // console.log(item);
+    //console.log(i);
+    this.dataViewService.items.splice(i, 1);
+  }
 } 

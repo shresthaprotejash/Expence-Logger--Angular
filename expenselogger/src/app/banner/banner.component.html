@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <mat-card class="banner">
+                <mat-card-header>
+                        <h3>{{ currentMonth }}</h3>    
+                </mat-card-header>
+                <hr>
+                <mat-card-content>      
+                        <h3> Total Expense </h3>
+                        <h2>{{ dataViewService.getTotal()  | currency:"₹ "}} </h2>
+                </mat-card-content> 
+            </mat-card>
+        </div>
+
+        <div class="col-sm-8">
+            <mat-card class="banner-img">
+            
+                   <img src ="../../assets/images/elegant.jpg" height="200" width="auto" class="image"> 
+                
+            </mat-card>
+        </div>
+    </div>
+</div>

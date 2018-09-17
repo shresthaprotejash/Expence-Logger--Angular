@@ -1,13 +1,17 @@
 <app-header></app-header>
 <main>
 <br><br>
-
-<div *ngIf="!data">
-    <button id = "add" class="btn btn-primary" mat-button (click)="createData()">Add</button>
+<app-banner></app-banner>
+<br>
+<div *ngIf="!appService.data">
+    <button id = "add" class="btn btn-primary" mat-button (click)="createData()">Add a Expense</button>
     <br><br>
   <app-data-view></app-data-view>
 </div>
-<div *ngIf="data">
+<div *ngIf="appService.data">
+  <br><br>
   <app-data-create></app-data-create>
 </div>
 </main>
+<br><br>
+<mat-toolbar color="primary"></mat-toolbar>>

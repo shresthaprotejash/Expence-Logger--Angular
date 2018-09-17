@@ -1,8 +1,11 @@
 .data-view {
     margin: auto;
 }
+.container{
+    width: 100%;
+}
 .actions{
-    margin-left: 40%;
+    margin-left:20%;
 }
 #edit{float:left;}
 #delete{float:right;}

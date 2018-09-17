@@ -11,7 +11,7 @@
     </mat-card-content>
 </mat-card>
 <mat-card class="data-view">
-        <mat-card-content *ngFor = "let item  of items">
+        <mat-card-content *ngFor = "let item  of dataViewService.items; let i = index">
             <div class="container">
                     <div class="row">
                             <div class="col-sm-2"><p>{{item.date}}</p></div>
@@ -20,11 +20,12 @@
                             <div class="col-sm-2"><p>{{item.amount}}</p></div>
                             <div class="col-sm-3">
                                 <div class ="actions">
-                                    <button id = "edit" class="btn btn-primary" mat-button>Edit</button>
-                                    <button id = "delete" class="btn btn-danger" mat-button>Delete</button>
+                                    <!--button id = "edit" class="btn btn-primary" mat-button>Edit</button-->
+                                    <button id = "delete" class="btn btn-danger" (click)="onDelete(i,item)"mat-button>Delete</button>
                                 </div>
                             </div>
                     </div>
             </div>
         </mat-card-content>
+        <p *ngIf ="dataViewService.items.length == 0"> No data found </p>
 </mat-card>

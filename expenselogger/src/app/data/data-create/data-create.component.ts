@@ -1,6 +1,8 @@
 import { Component } from "@angular/core";
 import {FormControl} from '@angular/forms';
-import {AppComponent } from 'src/app/app.component'
+import {AppComponent } from 'src/app/app.component';
+import {AppService } from 'src/app/app.service';
+import {DataViewService } from '../data-view/data-view.service';
 import {MAT_MOMENT_DATE_FORMATS, MomentDateAdapter} from '@angular/material-moment-adapter';
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 
@@ -14,11 +16,11 @@ import {default as _rollupMoment} from 'moment';
 
 const moment = _rollupMoment || _moment;
 
-
 export interface Item {
     value: string;
     viewValue: string;
   }
+
 
 @Component({
     selector: 'app-data-create',
@@ -34,12 +36,15 @@ export interface Item {
 })
 
 export class DataCreateComponent {
+
+    constructor( public appService: AppService, public dataViewService: DataViewService) { }
+    flag = 0;
     data = '';
     itemInfo = '';
-    amount = '';
+    amount: number;
     category = '';
     dateSelected = '';
-    date = new FormControl(moment([2017, 0, 1]));
+    todayDate = new Date();
 
     items: Item[] = [
         {value: 'Bills', viewValue: 'Bills'},
@@ -54,7 +59,7 @@ export class DataCreateComponent {
 
     //@Output() messageEvent = new EventEmitter<Item[]>();
     onSaveData(itemInfo, amount, dateSelected, category){
-        if(itemInfo.value == '' || amount.value == '' || category.value == undefined){
+        if(itemInfo.value == '' || amount.value == 0 || category.value == undefined){
             this.data = 'Please fill all the fields to save.';
         }
         else { 
@@ -62,11 +67,13 @@ export class DataCreateComponent {
             const expense ={
                 date: dateSelected.value,
                 item: itemInfo.value,
-                amount: amount.value,                
+                amount: Number(amount.value),                
                 category: category.value
             }
-            AppComponent.resetData();
-            //this.messageEvent.emit(expense)
+     
+           this.appService.data = 0;
+             this.dataViewService.items.splice(0, 0, expense);
+           console.log(expense);
         }
     }
 

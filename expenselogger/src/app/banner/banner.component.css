@@ -1,0 +1,15 @@
+.banner{
+    min-height: 270px;
+    background-image: url("../../assets/images/money.png");
+}
+
+.container{
+    width:100%;
+}
+.image{
+    width: 100%;
+    height: auto;
+      display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
